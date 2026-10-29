@@ -1,0 +1,21 @@
+// server.js — skeleton
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+// POST endpoint your frontend would call
+app.post('/api/bookings', async (req, res) => {
+  const { fullName, email, departure, destination,
+          departureTime, travelClass, flightDate,
+          cardNumber, expiry, cvv } = req.body;
+
+  // 1. Validate input
+  // 2. Process payment via Stripe (server-side only!)
+  // 3. Save booking to database
+  // 4. Send confirmation email
+  // 5. Return a booking reference
+
+  res.json({ success: true, bookingRef: 'SKY-' + Date.now() });
+});
+
+app.listen(3000, () => console.log('Server running on :3000'));
